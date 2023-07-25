@@ -5,7 +5,7 @@ typedef long long ll;
 #define vrep(v, a) for (auto v: a)
 using namespace std;
 
-ll pow(ll x, ll n, ll mod=998244353){
+ll pow_(ll x, ll n, ll mod=1e18){
     ll ret = 1;
     while (n>0){
         if (n&1){
