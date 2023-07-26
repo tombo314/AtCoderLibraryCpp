@@ -2,7 +2,7 @@
 typedef long long ll;
 #define rep(i, n) for (ll i=0; i<n; i++)
 #define rrep(i, n) for (ll i=n-1; i>=0; i--)
-#define vrep(v, a) for (auto v: a)
+#define vrep(x, v) for (auto x: v)
 #define inf ll(1e18)
 using namespace std;
 
@@ -19,5 +19,5 @@ ll pow_(ll x, ll n, ll mod=1e18){
 }
 
 int main(){
-    
+
 }
