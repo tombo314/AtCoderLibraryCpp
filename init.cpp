@@ -1,7 +1,7 @@
 #include <bits/stdc++.h>
 typedef long long ll;
-#define rep(i, n) for (ll i=0; i<n; i++)
-#define rrep(i, n) for (ll i=n-1; i>=0; i--)
+#define rep(i, a, b) for (ll i=a; i<b; i++)
+#define rrep(i, a, b) for (ll i=a; i>b; i--)
 #define vrep(x, v) for (auto x: v)
 #define srt(v) sort(v.begin(), v.end())
 #define rsrt(v) sort(v.begin(), v.end(), greater<ll>())
