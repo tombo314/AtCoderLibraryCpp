@@ -1,10 +1,8 @@
+const int mod = 998244353;
 class mint {
     ll x;
-    ll mod;
 public:
-    mint(ll n, ll m=998244353) : x((x%mod+mod)%mod) {
-        x = n;
-        mod = m;
+    mint(ll x=0) : x((x%mod+mod)%mod) {
     }
     mint operator-() const { 
       return mint(-x);
