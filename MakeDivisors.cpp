@@ -13,7 +13,7 @@ vector<ll> make_divisors(ll n){
         }
         i++;
     }
-    reverse(upper_divisors.begin(), upper_divisors.end());
-    lower_divisors.insert(lower_divisors.end(), upper_divisors.begin(), upper_divisors.end());
+    rev(upper_divisors);
+    concat(lower_divisors, upper_divisors);
     return lower_divisors;
 }
