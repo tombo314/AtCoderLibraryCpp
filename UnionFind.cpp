@@ -6,7 +6,7 @@ public:
 
     UnionFind(ll k){
         /*
-        UnionFind (1-indexed)
+        1-indexed
         k: 頂点数
         */
         n = k;
