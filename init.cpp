@@ -9,6 +9,7 @@ typedef long long ll;
 #define vmax(v) *max_element(v.begin(), v.end())
 #define vmin(v) *min_element(v.begin(), v.end())
 #define vsum(v) accumulate(v.begin(), v.end(), 0)
+#define rev(v) reverse(v.begin(), v.end())
 #define bpq(v, T) priority_queue<T> v
 #define spq(v, T) priority_queue<T, vector<T>, greater<T>> v
 #define pb push_back
