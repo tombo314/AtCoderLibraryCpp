@@ -1,4 +1,5 @@
 #include <bits/stdc++.h>
+using namespace std;
 typedef long long ll;
 #define rep(i, a, b) for (ll i=a; i<b; i++)
 #define rrep(i, a, b) for (ll i=a; i>b; i--)
@@ -10,12 +11,11 @@ typedef long long ll;
 #define vmin(v) *min_element(v.begin(), v.end())
 #define vsum(v) accumulate(v.begin(), v.end(), 0)
 #define rev(v) reverse(v.begin(), v.end())
-#define concat(v1, v2) v1.insert(v1.end(), v2.begin(), v2.end());
+#define vconcat(v1, v2) v1.insert(v1.end(), v2.begin(), v2.end());
 #define bpq(v, T) priority_queue<T> v
 #define spq(v, T) priority_queue<T, vector<T>, greater<T>> v
 #define pb push_back
 #define inf ll(1e18)
-using namespace std;
 
 int main(){
 }
