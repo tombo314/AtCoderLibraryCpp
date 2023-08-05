@@ -9,7 +9,7 @@ typedef long long ll;
 #define copy(v1, v2) copy(v1.begin(), v1.end(), v2.begin())
 #define vmax(v) *max_element(v.begin(), v.end())
 #define vmin(v) *min_element(v.begin(), v.end())
-#define vsum(v) accumulate(v.begin(), v.end(), 0)
+#define vsum(v) accumulate(v.begin(), v.end(), ll(0))
 #define rev(v) reverse(v.begin(), v.end())
 #define vconcat(v1, v2) v1.insert(v1.end(), v2.begin(), v2.end());
 #define bpq(v, T) priority_queue<T> v
