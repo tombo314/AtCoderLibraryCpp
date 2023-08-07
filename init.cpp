@@ -11,7 +11,8 @@ typedef long long ll;
 #define vmin(v) *min_element(v.begin(), v.end())
 #define vsum(v) accumulate(v.begin(), v.end(), ll(0))
 #define rev(v) reverse(v.begin(), v.end())
-#define vconcat(v1, v2) v1.insert(v1.end(), v2.begin(), v2.end());
+#define vconcat(v1, v2) v1.insert(v1.end(), v2.begin(), v2.end())
+#define now() chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now().time_since_epoch()).count()
 #define bpq(v, T) priority_queue<T> v
 #define spq(v, T) priority_queue<T, vector<T>, greater<T>> v
 #define pb push_back
