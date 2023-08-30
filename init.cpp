@@ -15,6 +15,7 @@ typedef long long ll;
 #define rev(v) reverse(v.begin(), v.end())
 #define vconcat(v1, v2) v1.insert(v1.end(), v2.begin(), v2.end())
 #define now() chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now().time_since_epoch()).count()
+#define choice(in, out, n) sample(in.begin(), in.end(), back_inserter(out), n, mt)
 #define bpq(v, T) priority_queue<T> v
 #define spq(v, T) priority_queue<T, vector<T>, greater<T>> v
 #define pb push_back
