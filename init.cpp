@@ -19,7 +19,7 @@ typedef long long ll;
 #define bpq(v, T) priority_queue<T> v
 #define spq(v, T) priority_queue<T, vector<T>, greater<T>> v
 #define pb push_back
-#define inf ll(1e18)
+#define inf 1e18
 
 int main(){
 }
