@@ -6,6 +6,7 @@ typedef long long ll;
 #define rep(i, a, b) for (ll i=a; i<b; i++)
 #define rrep(i, a, b) for (ll i=a; i>b; i--)
 #define vrep(x, v) for (auto x: v)
+#define mrep(x, y, v) for (auto [x, y]: v)
 #define srt(v) sort(v.begin(), v.end())
 #define rsrt(v, T) sort(v.begin(), v.end(), greater<T>())
 #define copy(v1, v2) copy(v1.begin(), v1.end(), v2.begin())
