@@ -4,11 +4,11 @@ public:
     vector<ll> par;
     vector<ll> siz;
 
+    /*
+    1-indexed
+    k: 頂点数
+    */
     UnionFind(ll k){
-        /*
-        1-indexed
-        k: 頂点数
-        */
         n = k;
         par.resize(n+1, -1);
         siz.resize(n+1, 1);
