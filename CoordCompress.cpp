@@ -4,7 +4,7 @@ vector<ll> coord_compress(vector<ll> l){
     copy(l, l2);
     srt(l2);
     map<ll, ll> rank;
-    rep(i, l2.size()) rank[l2[i]] = i;
+    rep(i, 0, l2.size()) rank[l2[i]] = i;
     vector<ll> compressed;
     vrep(x, l) compressed.pb(rank[x]);
     return compressed;
