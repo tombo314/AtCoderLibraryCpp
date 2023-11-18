@@ -1,10 +1,10 @@
+/*
+(1-indexed) O((V+E)logV)
+g: グラフ [[[cost, node], [cost, node]], ...]
+n: ノード数
+start: スタートするノード
+*/
 vector<ll> dijkstra(vector<vector<vector<ll>>> g, ll n, ll start=1){
-    /*
-    (1-indexed) O((V+E)logV)
-    g: グラフ [[[cost, node], [cost, node]], ...]
-    n: ノード数
-    start: スタートするノード
-    */
     vector<ll> dist(n+1, inf);
     dist[start] = 0;
     vector<bool> used(n+1, 0);
