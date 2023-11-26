@@ -2,6 +2,7 @@
 init_val: vector
 segfunc: 区間への演算
 ide_ele: 単位元
+0-indexed
 */
 class SegTree{
 public:
