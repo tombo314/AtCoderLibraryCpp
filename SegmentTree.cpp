@@ -1,3 +1,8 @@
+/*
+init_val: vector
+segfunc: 区間への演算
+ide_ele: 単位元
+*/
 class SegTree{
 public:
     ll n;
@@ -7,11 +12,6 @@ public:
     function<ll(ll, ll)> func;
 
     SegTree(vector<ll> init_val, function<ll(ll, ll)> segfunc, ll ide_ele){
-        /*
-        init_val: vector
-        segfunc: 区間への演算
-        ide_ele: 単位元
-        */
         n = init_val.size();
         ide = ide_ele;
         func = segfunc;
@@ -27,12 +27,12 @@ public:
         }
     }
 
+    /*
+    k番目の値をxに更新
+    k: index(0-indexed)
+    x: update value
+    */
     void update(ll k, ll x){
-        /*
-        k番目の値をxに更新
-        k: index(0-indexed)
-        x: update value
-        */
         k += num;
         tree[k] = x;
         while (k>1){
@@ -41,12 +41,12 @@ public:
         }
     }
 
+    /*
+    [l, r)のsegfuncしたものを得る
+    l: index(0-indexed)
+    r: index(0-indexed)
+    */
     ll query(ll l, ll r){
-        /*
-        [l, r)のsegfuncしたものを得る
-        l: index(0-indexed)
-        r: index(0-indexed)
-        */
         ll res = ide;
         l += num;
         r += num;
@@ -64,11 +64,11 @@ public:
         return res;
     }
 
+    /*
+    k番目の値を得る
+    k: index(0-indexed)
+    */
     ll get(ll k){
-        /*
-        k番目の値を得る
-        k: index(0-indexed)
-        */
         return query(k, k+1);
     }
 };
