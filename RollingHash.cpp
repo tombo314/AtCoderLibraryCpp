@@ -1,58 +1,46 @@
-/*
-S: 文字列
-b: 基底
-m: mod
-*/
-class RollingHash{
-public:
-    vector<ll> prefix;
-    vector<ll> power;
-    ll n;
-    ll base;
-    ll mod;
+template< unsigned mod >
+struct RollingHash {
+  vector< unsigned > hashed, power;
 
-    RollingHash(string S, ll b=3491, ll m=998244353){
-        n = S.size();
-        base = b;
-        mod = m;
-        prefix.resize(n+1);
-        power.resize(n+1, 1);
-        rep(i, 0, n){
-            ll c = S[i];
-            prefix[i+1] = (prefix[i]*base+c)%mod;
-            power[i+1] = (power[i]*base)%mod;
-        }
-    }
+  inline unsigned mul(unsigned a, unsigned b) const {
+    unsigned long long x = (unsigned long long) a * b;
+    unsigned xh = (unsigned) (x >> 32), xl = (unsigned) x, d, m;
+    asm("divl %4; \n\t" : "=a" (d), "=d" (m) : "d" (xh), "a" (xl), "r" (mod));
+    return m;
+  }
 
-    /*
-    S[l, r)のハッシュを求める
-    */
-    ll get(ll l, ll r){
-        return (prefix[r]-power[r-l]*prefix[l])%mod;
+  RollingHash(const string &s, unsigned base = 10007) {
+    int sz = (int) s.size();
+    hashed.assign(sz + 1, 0);
+    power.assign(sz + 1, 0);
+    power[0] = 1;
+    for(int i = 0; i < sz; i++) {
+      power[i + 1] = mul(power[i], base);
+      hashed[i + 1] = mul(hashed[i], base) + s[i];
+      if(hashed[i + 1] >= mod) hashed[i + 1] -= mod;
     }
+  }
 
-    /*
-    つなげる文字列をS1、自身の連続する部分文字列をS2として、
-    S1+S2のハッシュを求める
-    h1: S1のハッシュ
-    h2: S2のハッシュ
-    l2: S2の長さ
-    */
-    ll concat(ll h1, ll h2, ll l2){
-        return (power[l2]*h1+h2)%mod;
-    }
+  unsigned get(int l, int r) const {
+    unsigned ret = hashed[r] + mod - mul(hashed[l], power[r - l]);
+    if(ret >= mod) ret -= mod;
+    return ret;
+  }
 
-    /*
-    S[l1, r1)とS[l2, r2)の最大共通接頭辞を求める
-    */
-    ll lcp(ll l1, ll r1, ll l2, ll r2){
-        ll low = 0;
-        ll high = min({r1-l1, r2-l2})+1;
-        while (high-low>1){
-            ll mid = (high+low)/2;
-            if (get(l1, l1+mid)==get(l2, l2+mid)) low = mid;
-            else high = mid;
-        }
-        return low;
+  unsigned connect(unsigned h1, int h2, int h2len) const {
+    unsigned ret = mul(h1, power[h2len]) + h2;
+    if(ret >= mod) ret -= mod;
+    return ret;
+  }
+
+  int LCP(const RollingHash< mod > &b, int l1, int r1, int l2, int r2) {
+    int len = min(r1 - l1, r2 - l2);
+    int low = -1, high = len + 1;
+    while(high - low > 1) {
+      int mid = (low + high) / 2;
+      if(get(l1, l1 + mid) == b.get(l2, l2 + mid)) low = mid;
+      else high = mid;
     }
+    return (low);
+  }
 };
