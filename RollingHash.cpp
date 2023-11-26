@@ -1,3 +1,8 @@
+/*
+S: 文字列
+b: 基底
+m: mod
+*/
 class RollingHash{
 public:
     vector<ll> prefix;
@@ -7,11 +12,6 @@ public:
     ll mod;
 
     RollingHash(string S, ll b=3491, ll m=998244353){
-        /*
-        S: 文字列
-        b: 基底
-        m: mod
-        */
         n = S.size();
         base = b;
         mod = m;
@@ -24,28 +24,28 @@ public:
         }
     }
 
+    /*
+    S[l, r)のハッシュを求める
+    */
     ll get(ll l, ll r){
-        /*
-        S[l, r)のハッシュを求める
-        */
         return (prefix[r]-power[r-l]*prefix[l])%mod;
     }
 
+    /*
+    つなげる文字列をS1、自身の連続する部分文字列をS2として、
+    S1+S2のハッシュを求める
+    h1: S1のハッシュ
+    h2: S2のハッシュ
+    l2: S2の長さ
+    */
     ll concat(ll h1, ll h2, ll l2){
-        /*
-        つなげる文字列をS1、自身の連続する部分文字列をS2として、
-        S1+S2のハッシュを求める
-        h1: S1のハッシュ
-        h2: S2のハッシュ
-        l2: S2の長さ
-        */
         return (power[l2]*h1+h2)%mod;
     }
 
+    /*
+    S[l1, r1)とS[l2, r2)の最大共通接頭辞を求める
+    */
     ll lcp(ll l1, ll r1, ll l2, ll r2){
-        /*
-        S[l1, r1)とS[l2, r2)の最大共通接頭辞を求める
-        */
         ll low = 0;
         ll high = min({r1-l1, r2-l2})+1;
         while (high-low>1){
