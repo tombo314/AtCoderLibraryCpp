@@ -44,7 +44,7 @@ struct Dijkstra {
         vector<ll> tr;
         ll now = n;
         while (now!=0){
-            tr.pb(now);
+            tr.push_back(now);
             now = trace[now];
         }
         rev(tr);
