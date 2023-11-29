@@ -17,7 +17,6 @@ typedef long long ll;
 #define vconcat(v1, v2) v1.insert(v1.end(), v2.begin(), v2.end())
 #define now() chrono::duration_cast<chrono::milliseconds>(chrono::system_clock::now().time_since_epoch()).count()
 #define choice(in, out, n) sample(in.begin(), in.end(), back_inserter(out), n, mt)
-#define pb push_back
 #define inf 1e18
 
 int main(){
