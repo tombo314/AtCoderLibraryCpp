@@ -7,7 +7,7 @@ class MaxFlow {
 public:
 	ll size_ = 0;
     vector<bool> used;
-	vector<vector<Edge>> G;
+    vector<vector<Edge>> G;
 
     MaxFlow(ll N){
         size_ = N;
