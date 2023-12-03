@@ -40,10 +40,10 @@ struct Dijkstra {
         return dist;
     }
 
-    vector<ll> get_trace(){
+    vector<ll> get_trace(ll start, ll goal){
         vector<ll> tr;
-        ll now = n;
-        while (now!=0){
+        ll now = goal;
+        while (now!=start){
             tr.push_back(now);
             now = trace[now];
         }
