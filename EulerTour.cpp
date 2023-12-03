@@ -1,4 +1,5 @@
-vector<ll> euler_tour(vector<vector<ll>> g, ll root=1){
+// 0-indexed
+vector<ll> euler_tour(vector<vector<ll>> g, ll root=0){
     ll n = g.size();
     vector<ll> euler;
     vector<ll> q1 = {root};
