@@ -40,15 +40,20 @@ struct Dijkstra {
         return dist;
     }
 
-    // start, goal
-    // (startを含まない経路を得る)
     vector<ll> get_trace(ll start, ll goal){
+
+        if (start==goal){
+            return {};
+        }
+
         vector<ll> tr;
         ll now = goal;
         while (now!=start){
             tr.push_back(now);
             now = trace[now];
         }
+        tr.push_back(start);
+
         rev(tr);
         return tr;
     }
