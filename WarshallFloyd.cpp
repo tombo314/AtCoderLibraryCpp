@@ -1,7 +1,7 @@
 vector<vector<ll>> warshall_floyd(ll n, vector<vector<ll>> dist){
     /*
     n: 頂点数
-    dist: 頂点間のコストが入った2次元vector(infで初期化)
+    dist[i][j]: iからjへのコスト(infで初期化)
     1-indexed
     */
     rep(k, 1, n+1){
