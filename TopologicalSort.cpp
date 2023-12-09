@@ -1,4 +1,6 @@
 // 1-indexed
+// n: 頂点数
+// g: 隣接リスト
 ll n;
 vector<ll> l;
 vector<vector<ll>> g;
@@ -9,12 +11,11 @@ void dfs(ll v){
         vrep(x, g[v]){
             dfs(x);
         }
-        l.pb(v);
+        l.push_back(v);
     }
 }
-// m: 頂点数
-vector<ll> topological_sort(ll m){
-    rep(i, 1, m+1) dfs(i);
+vector<ll> topological_sort(){
+    rep(i, 1, n+1) dfs(i);
     rev(l);
     return l;
 }
