@@ -9,7 +9,6 @@ typedef long long ll;
 #define mrep(x, y, v) for (auto [x, y]: v)
 #define srt(v) sort(v.begin(), v.end())
 #define rsrt(v, T) sort(v.begin(), v.end(), greater<T>())
-#define copy(v1, v2) copy(v1.begin(), v1.end(), v2.begin())
 #define vmax(v) *max_element(v.begin(), v.end())
 #define vmin(v) *min_element(v.begin(), v.end())
 #define vsum(v, T) accumulate(v.begin(), v.end(), T(0))
