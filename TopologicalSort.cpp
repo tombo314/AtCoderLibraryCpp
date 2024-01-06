@@ -1,21 +1,30 @@
 // 1-indexed
-// n: 頂点数
-// g: 隣接リスト
-ll n;
-vector<ll> l;
-vector<vector<ll>> g;
-// vector<bool> seen(n+1);
-void dfs(ll v){
-    if (!seen[v]){
-        seen[v] = true;
-        vrep(x, g[v]){
-            dfs(x);
-        }
-        l.push_back(v);
+// N: 頂点数
+// G: 隣接リスト
+class TopologicalSort {
+    ll N;
+    vector<vector<ll>> G;
+    vector<ll> l;
+    vector<bool> seen;
+public:
+    TopologicalSort(ll N_, vector<vector<ll>> G_){
+        N = N_;
+        G = G_;
     }
-}
-vector<ll> topological_sort(){
-    rep(i, 1, n+1) dfs(i);
-    rev(l);
-    return l;
-}
+
+    void dfs(ll v){
+        if (!seen[v]){
+            seen[v] = true;
+            vrep(x, G[v]){
+                dfs(x);
+            }
+            l.push_back(v);
+        }
+    }
+
+    vector<ll> run(){
+        rep(i, 1, N+1) dfs(i);
+        rev(l);
+        return l;
+    }
+};
